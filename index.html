@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stephie's Boss-Impressing Site</title>
+  <title>Stephie's Amazing Website</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to My Site!</h1>
-  <p>Built for speed, style, and showing off to my boss 😎</p>
+  <h1>Stephie's Amazing Website 💖</h1>
+  <p>Where problems get solved, chaos gets tamed, and sparkle is mandatory 🌸✨💅</p>
 
   <!-- About Me Section -->
   <div class="about">
-    <h2>Hi, I'm Stephie 👋</h2>
-    <p>I break things, fix them, and look fabulous doing it. 🚀</p>
+    <h2>Hi, I'm Stephie 💖</h2>
+    <p>I break things, fix them, and look fabulous doing it 💅🌸✨</p>
   </div>
 
   <!-- Contact Button -->
-  <button onclick="openContactForm()">Contact Me</button>
+  <button onclick="openContactForm()">Contact Me 💌</button>
 
   <!-- Hidden Contact Form -->
   <div id="contactForm" class="contact-form">
@@ -23,8 +23,8 @@
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-      <button type="button" onclick="closeContactForm()">Cancel</button>
+      <button type="submit">Send 💖</button>
+      <button type="button" onclick="closeContactForm()">Cancel ❌</button>
     </form>
   </div>
 
@@ -36,19 +36,19 @@
       document.getElementById('contactForm').style.display = 'none';
     }
 
-    // Send form using free Formspree service
+    // Send form using your Formspree endpoint
     document.getElementById('form').addEventListener('submit', function(e) {
       e.preventDefault();
       const formData = new FormData(this);
-      fetch('https://formspree.io/f/mayvlqjq', { // <-- your free Formspree endpoint
+      fetch('https://formspree.io/f/mjgagqnn', { // your Formspree endpoint
         method: 'POST',
         body: formData,
         headers: { 'Accept': 'application/json' }
       }).then(res => {
-        alert('Message sent! Check your email.'); 
+        alert('Message sent! Check your email 💌'); 
         closeContactForm();
         this.reset();
-      }).catch(err => alert('Oops! There was a problem.'));
+      }).catch(err => alert('Oops! There was a problem ❌'));
     });
   </script>
 </body>
