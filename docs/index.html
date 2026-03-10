@@ -28,35 +28,57 @@
     </form>
   </div>
 
-  <!-- Magical falling unicorns and flowers -->
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Twemoji_1f984.svg/72px-Twemoji_1f984.svg.png" class="falling">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Twemoji_1f338.svg/72px-Twemoji_1f338.svg.png" class="falling">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Twemoji_1f984.svg/72px-Twemoji_1f984.svg.png" class="falling">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Twemoji_1f338.svg/72px-Twemoji_1f338.svg.png" class="falling">
+<script>
 
-  <script>
-    function openContactForm() {
-      document.getElementById('contactForm').style.display = 'flex';
-    }
-    function closeContactForm() {
-      document.getElementById('contactForm').style.display = 'none';
-    }
+function openContactForm() {
+  document.getElementById('contactForm').style.display = 'flex';
+}
 
-    // Send form using your Formspree endpoint
-    document.getElementById('form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = new FormData(this);
-      fetch('https://formspree.io/f/mjgagqnn', { // your Formspree endpoint
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(res => {
-        alert('Message sent! Check your email 💌'); 
-        closeContactForm();
-        this.reset();
-      }).catch(err => alert('Oopsie! Unicorns tripped 💖🦄')); // updated magical error message
-    });
-  </script>
+function closeContactForm() {
+  document.getElementById('contactForm').style.display = 'none';
+}
+
+// Contact form
+document.getElementById('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+
+  fetch('https://formspree.io/f/mjgagqnn', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  }).then(res => {
+    alert('Message sent! Check your email 💌');
+    closeContactForm();
+    this.reset();
+  }).catch(err => alert('Oopsie! Unicorns tripped 💖🦄'));
+});
+
+
+// 🌸 Magical falling emojis
+const emojis = ["🦄","🌸","✨","💖"];
+
+function createEmoji() {
+  const emoji = document.createElement("div");
+  emoji.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
+  emoji.style.position = "fixed";
+  emoji.style.left = Math.random()*100 + "vw";
+  emoji.style.top = "-50px";
+  emoji.style.fontSize = "30px";
+  emoji.style.pointerEvents = "none";
+  emoji.style.animation = "fall 6s linear";
+
+  document.body.appendChild(emoji);
+
+  setTimeout(() => {
+    emoji.remove();
+  }, 6000);
+}
+
+setInterval(createEmoji, 500);
+
+</script>
+
 </body>
 </html>
-
