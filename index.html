@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Free Website</title>
+  <title>Stephie's Boss-Impressing Site</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>This is my first free website on GitHub Pages!</p>
+  <h1>Welcome to My Site!</h1>
+  <p>Built for speed, style, and showing off to my boss 😎</p>
+
+  <!-- About Me Section -->
+  <div class="about">
+    <h2>Hi, I'm Stephie 👋</h2>
+    <p>I break things, fix them, and look fabulous doing it. 🚀</p>
+  </div>
+
+  <!-- Contact Button -->
+  <button onclick="openContactForm()">Contact Me</button>
+
+  <!-- Hidden Contact Form -->
+  <div id="contactForm" class="contact-form">
+    <form id="form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+      <button type="button" onclick="closeContactForm()">Cancel</button>
+    </form>
+  </div>
+
+  <script>
+    function openContactForm() {
+      document.getElementById('contactForm').style.display = 'flex';
+    }
+    function closeContactForm() {
+      document.getElementById('contactForm').style.display = 'none';
+    }
+
+    // Send form using free Formspree service
+    document.getElementById('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch('https://formspree.io/f/mayvlqjq', { // <-- your free Formspree endpoint
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        alert('Message sent! Check your email.'); 
+        closeContactForm();
+        this.reset();
+      }).catch(err => alert('Oops! There was a problem.'));
+    });
+  </script>
 </body>
 </html>
