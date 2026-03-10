@@ -5,12 +5,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Stephie's Amazing Website 💖</h1>
+  <h1>💖 Stephie's Amazing Website 💖</h1>
   <p>Where problems get solved, chaos gets tamed, and sparkle is mandatory 🌸✨💅</p>
 
   <!-- About Me Section -->
   <div class="about">
-    <h2>Hi, I'm Stephie 💖</h2>
+    <h2>Hello, I'm Stephie 💖</h2>
     <p>I break things, fix them, and look fabulous doing it 💅🌸✨</p>
   </div>
 
@@ -29,16 +29,11 @@
   </div>
 
 <script>
+// Contact form open/close
+function openContactForm() { document.getElementById('contactForm').style.display = 'flex'; }
+function closeContactForm() { document.getElementById('contactForm').style.display = 'none'; }
 
-function openContactForm() {
-  document.getElementById('contactForm').style.display = 'flex';
-}
-
-function closeContactForm() {
-  document.getElementById('contactForm').style.display = 'none';
-}
-
-// Contact form
+// Send form to Formspree
 document.getElementById('form').addEventListener('submit', function(e) {
   e.preventDefault();
   const formData = new FormData(this);
@@ -54,30 +49,48 @@ document.getElementById('form').addEventListener('submit', function(e) {
   }).catch(err => alert('Oopsie! Unicorns tripped 💖🦄'));
 });
 
-
-// 🌸 Magical falling emojis
+// 🌸 Falling emojis
 const emojis = ["🦄","🌸","✨","💖"];
-
 function createEmoji() {
   const emoji = document.createElement("div");
   emoji.innerText = emojis[Math.floor(Math.random()*emojis.length)];
-
   emoji.style.position = "fixed";
   emoji.style.left = Math.random()*100 + "vw";
   emoji.style.top = "-50px";
   emoji.style.fontSize = "30px";
   emoji.style.pointerEvents = "none";
   emoji.style.animation = "fall 6s linear";
-
   document.body.appendChild(emoji);
-
-  setTimeout(() => {
-    emoji.remove();
-  }, 6000);
+  setTimeout(() => emoji.remove(), 6000);
 }
-
 setInterval(createEmoji, 500);
 
+// ✨ Sparkles follow mouse
+document.addEventListener("mousemove", function(e) {
+  const sparkle = document.createElement("div");
+  sparkle.innerText = "✨";
+  sparkle.style.position = "fixed";
+  sparkle.style.left = e.clientX + Math.random()*10 + "px";
+  sparkle.style.top = e.clientY + Math.random()*10 + "px";
+  sparkle.style.fontSize = (10+Math.random()*20)+"px";
+  sparkle.style.pointerEvents = "none";
+  sparkle.style.opacity = 0.8;
+  document.body.appendChild(sparkle);
+  setTimeout(() => sparkle.remove(), 800);
+});
+
+// 💖 Hearts on click
+document.addEventListener("click", function(e){
+  const heart = document.createElement("div");
+  heart.innerText = "💖";
+  heart.style.position = "fixed";
+  heart.style.left = e.clientX + "px";
+  heart.style.top = e.clientY + "px";
+  heart.style.fontSize = "24px";
+  heart.style.pointerEvents = "none";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 1000);
+});
 </script>
 
 </body>
