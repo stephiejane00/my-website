@@ -1,7 +1,8 @@
+/* Body styling with baby pink background */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: white;
+  background-color: #ffccd5; /* baby pink */
+  color: #333;
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,16 +11,20 @@ body {
   justify-content: flex-start;
   min-height: 100vh;
   text-align: center;
+  overflow: hidden;
   padding-top: 50px;
 }
 
+/* Headline */
 h1 {
-  font-size: 4em;
+  font-size: 3.5em;
   margin-bottom: 0.2em;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  color: #ff4da6;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   animation: fadeIn 2s ease-in-out;
 }
 
+/* Paragraph */
 p {
   font-size: 1.5em;
   margin-top: 0;
@@ -28,10 +33,10 @@ p {
 
 /* About Section */
 .about {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255,255,255,0.2);
   padding: 20px 40px;
   margin: 30px 0;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .about h2 {
@@ -44,14 +49,14 @@ p {
   margin: 5px 0 0 0;
 }
 
-/* Contact Button */
+/* Buttons */
 button {
   margin-top: 20px;
   padding: 15px 30px;
   font-size: 1.2em;
   border: none;
   border-radius: 50px;
-  background-color: #ff4d6d;
+  background-color: #ff66b2;
   color: white;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -59,7 +64,7 @@ button {
 }
 
 button:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(-2deg);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
@@ -68,7 +73,7 @@ button:hover {
   display: none;
   position: fixed;
   top:0; left:0; right:0; bottom:0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
 }
@@ -77,7 +82,7 @@ button:hover {
   background: white;
   color: black;
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -91,12 +96,30 @@ button:hover {
 }
 
 .contact-form button {
-  background-color: #2575fc;
+  background-color: #ff66b2;
   color: white;
   margin-top: 10px;
 }
 
+/* Fade in animation */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(-20px);}
   100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Falling flowers & unicorns animation */
+.falling {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -50px;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 0;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
 }
